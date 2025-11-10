@@ -59,6 +59,7 @@
       display:flex;
       gap:12px;
       align-items:center;
+      cursor: pointer;
     }
     .logo .mark{
       width:44px;height:44px;border-radius:10px;
@@ -710,20 +711,30 @@
       display:flex
     }
 
-    footer{
-      max-width:var(--max-w);
-      margin:26px auto;
-      padding:0 20px;
-      color:var(--muted);
-      font-size:13px;
-      text-align: center;
+    /* Footer Styles */
+    footer {
+      background: white;
+      padding: 60px 20px 30px;
+      margin-top: 80px;
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
-    footer a {
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-content a {
       color: var(--accent);
       text-decoration: none;
     }
-    footer a:hover {
+    .footer-content a:hover {
       color: var(--hover-purple);
+    }
+    .made-with-love {
+      margin-top: 20px;
+      font-size: 16px;
     }
 
     /* small helpers */
@@ -810,6 +821,267 @@
       background: var(--accent);
       transition: width 0.3s ease;
       width: 0%;
+    }
+
+    /* Easter Egg Styles */
+    .easter-egg-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .easter-egg-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .easter-egg-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+    .easter-egg-modal.active .easter-egg-content {
+      transform: scale(1);
+    }
+    .easter-egg-content h2 {
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 15px;
+    }
+    .easter-egg-content p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .easter-egg-close {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .easter-egg-close:hover {
+      background: var(--hover-purple);
+      transform: translateY(-2px);
+    }
+
+    /* Particle Effects */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Star Placement Easter Egg */
+    .star-placer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9997;
+    }
+    .star-placer.active {
+      pointer-events: all;
+    }
+    .star {
+      position: absolute;
+      font-size: 30px;
+      cursor: move;
+      user-select: none;
+      transition: transform 0.3s ease;
+      z-index: 9998;
+    }
+    .star:hover {
+      transform: scale(1.2);
+    }
+    .star-placer-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 10px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .star-placer-controls.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .star-placer-controls button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .star-placer-controls .clear-btn {
+      background: var(--warning);
+      color: white;
+    }
+    .star-placer-controls .clear-btn:hover {
+      background: #d97706;
+    }
+
+    /* Tic Tac Toe Easter Egg */
+    .tictactoe-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .tictactoe-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .tictactoe-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+    .tictactoe-modal.active .tictactoe-content {
+      transform: scale(1);
+    }
+    .tictactoe-content h2 {
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 15px;
+    }
+    .tictactoe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      margin: 20px auto;
+      width: 240px;
+      height: 240px;
+    }
+    .tictactoe-cell {
+      width: 80px;
+      height: 80px;
+      background: #f8f9fa;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tictactoe-cell:hover {
+      background: #fff0ec;
+    }
+    .tictactoe-cell.x {
+      color: var(--accent);
+    }
+    .tictactoe-cell.o {
+      color: var(--hover-purple);
+    }
+    .tictactoe-status {
+      margin: 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .tictactoe-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .tictactoe-controls button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .tictactoe-controls .new-game-btn {
+      background: var(--success);
+      color: white;
+    }
+    .tictactoe-controls .new-game-btn:hover {
+      background: #059669;
+    }
+    .tictactoe-controls .close-btn {
+      background: var(--danger);
+      color: white;
+    }
+    .tictactoe-controls .close-btn:hover {
+      background: #dc2626;
+    }
+
+    /* Book Icon Easter Egg */
+    .book-icon {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-size: 40px;
+      cursor: pointer;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+    .book-icon.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .book-icon:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
     }
 
     /* Animations */
@@ -908,6 +1180,27 @@
         min-width: 320px;
         padding: 20px;
       }
+      .footer-content {
+        padding: 0 20px;
+      }
+      .star-placer-controls {
+        bottom: 10px;
+        right: 10px;
+        flex-direction: column;
+      }
+      .tictactoe-grid {
+        width: 210px;
+        height: 210px;
+      }
+      .tictactoe-cell {
+        width: 70px;
+        height: 70px;
+      }
+      .book-icon {
+        bottom: 10px;
+        left: 10px;
+        font-size: 32px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -960,6 +1253,21 @@
         min-width: 280px;
         padding: 16px;
       }
+      .easter-egg-content {
+        padding: 20px;
+      }
+      .tictactoe-content {
+        padding: 20px;
+      }
+      .tictactoe-grid {
+        width: 180px;
+        height: 180px;
+      }
+      .tictactoe-cell {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -967,7 +1275,7 @@
 
   <div class="topbar-wrap">
     <header>
-      <div class="logo">
+      <div class="logo" id="logo">
         <div class="mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 2.5l2.3 4.7 5.2.8-3.8 3.7.9 5.1L12 15.9l-4.6 2.4.9-5.1L4.5 8.0l5.2-.8L12 2.5z"/>
@@ -1046,6 +1354,14 @@
     <div id="trendingSub" class="subtag">Explore verified AI prompts with stunning visuals — copy any prompt instantly</div>
     <div id="trendingGrid" class="grid"></div>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>© 2025 PromptZen — by <a href="https://coderonins.vercel.app" target="_blank">Code Ronins</a></div>
+      <div class="made-with-love">Made with ♥</div>
+    </div>
+  </footer>
 
   <!-- Modal Pages -->
   <div id="modalGallery" class="modal-page">
@@ -1292,6 +1608,45 @@
     </div>
   </div>
 
+  <!-- Easter Egg Modals -->
+  <div id="logoEasterEgg" class="easter-egg-modal">
+    <div class="easter-egg-content">
+      <h2>🔍 Logo Secrets Revealed! 🔍</h2>
+      <p>Hmm... Looks like you're too interested in the logo.</p>
+      <p>Well, it's never just a Logo. Each corner represents one of the 5 members of Code Ronins who worked on this project.</p>
+      <p>Now you can place stars anywhere on the page! Click anywhere to place a star, and drag it to move it around.</p>
+      <button class="easter-egg-close" onclick="closeLogoEasterEgg()">Got it!</button>
+    </div>
+  </div>
+
+  <!-- Tic Tac Toe Easter Egg -->
+  <div id="tictactoeEasterEgg" class="tictactoe-modal">
+    <div class="tictactoe-content">
+      <h2>🎮 Tic Tac Toe 🎮</h2>
+      <div class="tictactoe-status" id="tictactoeStatus">Player X's turn</div>
+      <div class="tictactoe-grid" id="tictactoeGrid">
+        <!-- Cells will be generated by JavaScript -->
+      </div>
+      <div class="tictactoe-controls">
+        <button class="new-game-btn" onclick="startNewTicTacToeGame()">New Game</button>
+        <button class="close-btn" onclick="closeTicTacToeEasterEgg()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle Effects Container -->
+  <div id="particles" class="particles"></div>
+
+  <!-- Star Placer Easter Egg -->
+  <div id="starPlacer" class="star-placer">
+    <div class="star-placer-controls" id="starPlacerControls">
+      <button class="clear-btn" onclick="clearStars()">Clear Stars</button>
+    </div>
+  </div>
+
+  <!-- Book Icon Easter Egg -->
+  <div class="book-icon" id="bookIcon" onclick="openTicTacToeEasterEgg()">📚</div>
+
   <!-- toast for copy -->
   <div id="toast" class="toast" aria-live="polite" role="status" style="display:flex;align-items:center;">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex:0 0 18px">
@@ -1300,12 +1655,6 @@
     <div id="toastText">Copied to clipboard</div>
   </div>
 
-  <footer>
-    <div style="max-width:var(--max-w);margin:0 auto;padding:0 20px;text-align:center">
-      <div>© 2025 PromptZen — by <a href="https://coderonins.vercel.app" target="_blank">Code Ronins</a></div>
-      <div>Made with ♥</div>
-    </div>
-  </footer>
   <script>
 /* ---------- CONFIG ---------- */
 // Update this with your actual Vercel backend URL
@@ -1317,6 +1666,16 @@ let authToken = localStorage.getItem('promptzen_token');
 let selectedPrompts = new Set();
 let uploadedImageUrl = null;
 let allGalleryPrompts = []; // Store all prompts for search functionality
+
+// Easter Egg Variables
+let logoClickCount = 0;
+let logoClickTimer = null;
+let starPlacerActive = false;
+let tictactoeGameState = {
+  board: ['', '', '', '', '', '', '', '', ''],
+  currentPlayer: 'X',
+  gameOver: false
+};
 
 // Local storage keys
 const STORAGE_KEYS = {
@@ -1732,6 +2091,14 @@ function initializeSearch() {
     const searchTerm = e.target.value.toLowerCase().trim();
     filterGalleryPrompts(searchTerm);
   });
+
+  // Add special search for book icon Easter egg
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && this.value === '\\c0d3:bud') {
+      activateBookIcon();
+      this.value = '';
+    }
+  });
 }
 
 function filterGalleryPrompts(searchTerm) {
@@ -1791,7 +2158,236 @@ function filterGalleryPrompts(searchTerm) {
   }
   updateAuthUI();
   initializeSearch(); // Initialize search functionality
+  initializeEasterEggs(); // Initialize Easter eggs
 })();
+
+/* ---------- Easter Egg Functions ---------- */
+function initializeEasterEggs() {
+  // Logo click Easter egg
+  const logo = document.getElementById('logo');
+  logo.addEventListener('click', handleLogoClick);
+  
+  // Initialize Tic Tac Toe game
+  initializeTicTacToe();
+}
+
+function handleLogoClick() {
+  logoClickCount++;
+  
+  // Reset timer if it exists
+  if (logoClickTimer) {
+    clearTimeout(logoClickTimer);
+  }
+  
+  // Set timer to reset click count after 2 seconds
+  logoClickTimer = setTimeout(() => {
+    logoClickCount = 0;
+  }, 2000);
+  
+  // If clicked 6 times, activate the Easter egg
+  if (logoClickCount >= 6) {
+    activateLogoEasterEgg();
+    logoClickCount = 0;
+  }
+}
+
+function activateLogoEasterEgg() {
+  const modal = document.getElementById('logoEasterEgg');
+  modal.classList.add('active');
+  
+  // Activate star placer after modal is closed
+  setTimeout(() => {
+    activateStarPlacer();
+  }, 3000);
+}
+
+function closeLogoEasterEgg() {
+  const modal = document.getElementById('logoEasterEgg');
+  modal.classList.remove('active');
+}
+
+function activateStarPlacer() {
+  starPlacerActive = true;
+  const starPlacer = document.getElementById('starPlacer');
+  starPlacer.classList.add('active');
+  
+  // Show clear stars button
+  const starPlacerControls = document.getElementById('starPlacerControls');
+  starPlacerControls.classList.add('active');
+  
+  // Add click event to place stars
+  starPlacer.addEventListener('click', placeStar);
+}
+
+function placeStar(e) {
+  if (!starPlacerActive) return;
+  
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.textContent = '⭐';
+  star.style.left = `${e.clientX - 15}px`;
+  star.style.top = `${e.clientY - 15}px`;
+  
+  // Make star draggable
+  makeElementDraggable(star);
+  
+  document.getElementById('starPlacer').appendChild(star);
+  
+  // Hide the logo Easter egg modal if it's still visible
+  closeLogoEasterEgg();
+}
+
+function clearStars() {
+  const stars = document.querySelectorAll('.star');
+  stars.forEach(star => star.remove());
+  
+  // Deactivate star placer completely
+  deactivateStarPlacer();
+}
+
+function deactivateStarPlacer() {
+  starPlacerActive = false;
+  const starPlacer = document.getElementById('starPlacer');
+  starPlacer.classList.remove('active');
+  
+  // Hide clear stars button
+  const starPlacerControls = document.getElementById('starPlacerControls');
+  starPlacerControls.classList.remove('active');
+  
+  // Remove the click event listener
+  starPlacer.removeEventListener('click', placeStar);
+  
+  showToast('Star placer deactivated!');
+}
+
+function makeElementDraggable(element) {
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  
+  element.onmousedown = dragMouseDown;
+  
+  function dragMouseDown(e) {
+    e.preventDefault();
+    // Get the mouse cursor position at startup
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // Call a function whenever the cursor moves
+    document.onmousemove = elementDrag;
+  }
+  
+  function elementDrag(e) {
+    e.preventDefault();
+    // Calculate the new cursor position
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // Set the element's new position
+    element.style.top = (element.offsetTop - pos2) + "px";
+    element.style.left = (element.offsetLeft - pos1) + "px";
+  }
+  
+  function closeDragElement() {
+    // Stop moving when mouse button is released
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+/* ---------- Book Icon and Tic Tac Toe Easter Egg ---------- */
+function activateBookIcon() {
+  const bookIcon = document.getElementById('bookIcon');
+  bookIcon.classList.add('active');
+  showToast('Book icon activated! Click it to play Tic Tac Toe.');
+}
+
+function openTicTacToeEasterEgg() {
+  const modal = document.getElementById('tictactoeEasterEgg');
+  modal.classList.add('active');
+}
+
+function closeTicTacToeEasterEgg() {
+  const modal = document.getElementById('tictactoeEasterEgg');
+  modal.classList.remove('active');
+}
+
+function initializeTicTacToe() {
+  const grid = document.getElementById('tictactoeGrid');
+  grid.innerHTML = '';
+  
+  // Create 3x3 grid
+  for (let i = 0; i < 9; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'tictactoe-cell';
+    cell.dataset.index = i;
+    cell.addEventListener('click', () => handleTicTacToeClick(i));
+    grid.appendChild(cell);
+  }
+  
+  startNewTicTacToeGame();
+}
+
+function startNewTicTacToeGame() {
+  tictactoeGameState = {
+    board: ['', '', '', '', '', '', '', '', ''],
+    currentPlayer: 'X',
+    gameOver: false
+  };
+  
+  updateTicTacToeDisplay();
+}
+
+function handleTicTacToeClick(index) {
+  if (tictactoeGameState.gameOver || tictactoeGameState.board[index] !== '') {
+    return;
+  }
+  
+  // Make move
+  tictactoeGameState.board[index] = tictactoeGameState.currentPlayer;
+  
+  // Check for win or draw
+  if (checkTicTacToeWin()) {
+    tictactoeGameState.gameOver = true;
+    document.getElementById('tictactoeStatus').textContent = `Player ${tictactoeGameState.currentPlayer} wins!`;
+  } else if (tictactoeGameState.board.every(cell => cell !== '')) {
+    tictactoeGameState.gameOver = true;
+    document.getElementById('tictactoeStatus').textContent = "It's a draw!";
+  } else {
+    // Switch player
+    tictactoeGameState.currentPlayer = tictactoeGameState.currentPlayer === 'X' ? 'O' : 'X';
+    document.getElementById('tictactoeStatus').textContent = `Player ${tictactoeGameState.currentPlayer}'s turn`;
+  }
+  
+  updateTicTacToeDisplay();
+}
+
+function checkTicTacToeWin() {
+  const winPatterns = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+    [0, 4, 8], [2, 4, 6] // diagonals
+  ];
+  
+  return winPatterns.some(pattern => {
+    const [a, b, c] = pattern;
+    return tictactoeGameState.board[a] !== '' && 
+           tictactoeGameState.board[a] === tictactoeGameState.board[b] && 
+           tictactoeGameState.board[a] === tictactoeGameState.board[c];
+  });
+}
+
+function updateTicTacToeDisplay() {
+  const cells = document.querySelectorAll('.tictactoe-cell');
+  cells.forEach((cell, index) => {
+    cell.textContent = tictactoeGameState.board[index];
+    cell.className = 'tictactoe-cell';
+    if (tictactoeGameState.board[index] === 'X') {
+      cell.classList.add('x');
+    } else if (tictactoeGameState.board[index] === 'O') {
+      cell.classList.add('o');
+    }
+  });
+}
 
 /* ---------- Backend fetch functions ---------- */
 async function fetchPromptsFromBackend(publicOnly = true) {
@@ -2515,6 +3111,6 @@ function updateSubmitForm() {
   await loadTrending();
   navTo('home');
 })();
-</script>
+  </script>
 </body>
 </html>
